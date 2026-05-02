@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Floating Share Bar</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    font-family: Arial, sans-serif;
+  }
+
+  .float-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 12px 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 999999;
+  }
+
+  .icon {
+    font-size: 32px;
+    text-decoration: none;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="float-bar">
+  <a class="icon" id="fb" target="_blank">📘</a>
+  <a class="icon" id="wa" target="_blank">🟢</a>
+  <a class="icon" id="tw" target="_blank">❌</a>
+</div>
+
+<script>
+  const url = encodeURIComponent(window.top.location.href);
+
+  document.getElementById("fb").href = "https://www.facebook.com/sharer/sharer.php?u=" + url;
+  document.getElementById("wa").href = "https://api.whatsapp.com/send?text=" + url;
+  document.getElementById("tw").href = "https://twitter.com/intent/tweet?url=" + url;
+</script>
+
+</body>
+</html>
